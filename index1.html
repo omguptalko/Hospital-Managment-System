@@ -1,0 +1,609 @@
+<?php
+
+$conn = mysqli_connect('localhost','root','','contact_db') or die('connection failed');
+
+if(isset($_POST['submit'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $number = $_POST['number'];
+   $date = $_POST['date'];
+
+   $insert = mysqli_query($conn, "INSERT INTO `contact_form`(name, email, number, date) VALUES('$name','$email','$number','$date')") or die('query failed');
+
+   if($insert){
+      $message[] = 'appointment made successfully!';
+   }else{
+      $message[] = 'appointment failed';
+   }
+
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>Welcome to our Hospital Management System</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>Homs</strong> </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+      
+        <a href="#Patient">Patient</a>
+        <a href="#doctors">doctors</a>
+        <a href="#appointment">appointment</a>
+      <a href="#review">review</a>
+      
+      
+       </nav>
+        
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="image">
+        <img src="image/home-img.svg" alt="">
+    </div>
+
+    <div class="content">
+        <h3>we take care of your healthy life</h3>
+        <p> It will solve your health problems like a private investigator</p>
+        <a href="#appointment" class="btn"> appointment us <span class="fas fa-chevron-right"></span> </a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- icons section starts  -->
+
+<section class="icons-container">
+
+    <div class="icons">
+        <i class="fas fa-user-md"></i>
+        <h3>50+</h3>
+        <p>doctors at work</p>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-users"></i>
+        <h3>1000+</h3>
+        <p>satisfied patients</p>
+      <!--  <script src="https://sheetdb.io/s/f/qq3hzop5cw31v.js"></script>-->
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-procedures"></i>
+        <h3>250+</h3>
+        <p>bed facility</p>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-hospital"></i>
+        <h3>25+</h3>
+        <p>available hospitals</p>
+    </div>
+
+</section>
+
+<!-- icons section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>about</span> us </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="image/about-img.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>take the world's best quality treatment</h3>
+          <p>HOMS /Hospital Management System (HoMS) software helps deliver superior healthcare delivery for doctors, clinics and hospitals.
+</p>
+            <p>Empower your healthcare team, optimize your hospital billing systems, revolutionize your healthcare operations, and elevate patient care with our state-of-the-art Hospital Management System</p>
+            
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>free checkups</h3>
+            <p></p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-ambulance"></i>
+            <h3>24/7 ambulance</h3>
+            <p></p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>expert doctors</h3>
+            <p></p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+       <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>Doctor</h3>
+            <p></p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+       <div class="box">
+            <i class="fas fa-hospital"></i>
+            <h3>Hospital</h3>
+            <p></p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+        <div class="box">
+            <i class="fas fa-pills"></i>
+            <h3>medicines</h3>
+            <p></p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-procedures"></i>
+            <h3>bed facility</h3>
+            <p>Availabe Bed states</p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-heartbeat"></i>
+            <h3>total care</h3>
+            <p>Blood Bank module to manage  blood bank inventry,doctor information,test analysis,component wise stock.Donation Camps data & reporting in an efficient manner. </p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+      <div class="box">
+            <i class="fas fa-pills"></i>
+            <h3>Patient Appointment</h3>
+            <p> Patient can book their appointment at Hospital Desk or Online through Hospital Portal or App for consultant as per available slot.</p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+      <div class="box">
+            <i class="fas fa-procedures"></i>
+            <h3>Blood Donation</h3>
+            <p>Availabe for Appointment </p>
+            <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+        </div>
+
+    </div>
+  
+
+</section>
+
+<!-- services section ends -->
+
+
+
+<!-- doctors section starts  -->
+
+<section class="doctors" id="doctors">
+
+    <h1 class="heading"> our <span>doctors</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/doc-1.jpg" alt="">
+            <h3>Dr. Kundan Jogi</h3>
+            <span>General Physician|
+MBBS|
+1 Years of Experience</span>
+            <div class="share">
+            
+                
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="image/doc-2.jpg" alt="">
+            <h3>Dr. Rakshit Ahuja</h3>
+            <span>General Surgery|
+MS|
+1 Years of Experience</span>
+            <div class="share">
+            
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="image/doc-3.jpg" alt="">
+            <h3>Dr. Vivek Pratap Singh</h3>
+            <span>Psychiatry|
+MBBS, M.D. (Psychiatry), MD, PG Dip
+|10 Years of Experience</span>
+            <div class="share">
+           
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="image/doc-4.jpg" alt="">
+            <h3>Dr. Alloukik Agrawal </h3>
+            <span>Psychiatry |
+MBBS |
+ |5 Years of Experience</span>
+            <div class="share">
+            
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="image/doc-5.jpg" alt="">
+            <h3>Dr. Naman pardal
+</h3>
+            <span>MBBS |
+
+General Physician |
+6 Years Experience Overall</span>
+            <div class="share">
+            
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="image/doc-6.jpg" alt="">
+            <h3>Dr. Ritu Jain</h3>
+            <span>MBBS, MS - Obstetrics & Gynaecology
+
+Laparoscopic Surgeon (Obs & Gyn),Gynecologist,Obstetrician,Infertility Specialist |
+20 Years Experience Overall  (13 years as specialist)</span>
+            <div class="share">
+           
+            
+            </div>
+        </div>
+        <div class="box">
+            <img src="image/doc-7.jpg" alt="">
+            <h3>Dr. Abhishek Sachdev</h3>
+            <span>MBBS, MS - Orthopaedics
+
+Orthopedic surgeon,Joint Replacement Surgeon,Spine And Pain Specialist
+13 Years Experience Overall</span>
+            <div class="share">
+                
+               
+            </div>
+        </div>
+        <div class="box">
+            <img src="image/doc-8.jpg" alt="">
+            <h3>Dr. Kritika Jaiswal</h3>
+            <span>BDS, MDS - Paedodontics And Preventive Dentistry, Fellowship in Medical Cosmetology (FMC)
+
+Pediatric Dentist,Cosmetic/Aesthetic Dentist,Cosmetologist|
+11 Years Experience Overall</span>
+            <div class="share">
+            
+            </div>
+        </div>
+        <div class="box">
+            <img src="image/doc-9.jpg" alt="">
+            <h3>Dr. Rashmi Dilip Kumar</h3>
+            <span>MBBS, DNB - Obstetrics & Gynecology
+
+Gynecologist,Obstetrician|
+17 Years Experience. </span>
+            <div class="share">
+            
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- doctors section ends -->
+
+<!-- appointmenting section starts   -->
+
+<section class="appointment" id="appointment">
+
+    <h1 class="heading"> <span>appointment</span> now </h1>    
+
+    <div class="row">
+
+        <div class="image">
+            <img src="image/appointment-img.svg" alt="">
+        </div>
+        
+         <h3>make appointment</h3>
+            <<script src="https://sheetdb.io/s/f/qq3hzop5cw31v.js"></script>
+        
+        <!--<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+       
+      
+            <h3>make appointment</h3>
+            <input type="text"name="name" placeholder="your name" class="box">
+            <input type="number"name="number" placeholder="your number" class="box">
+            <input type="email"name="email" placeholder="your email" class="box">
+            <input type="date"name="date" class="box">
+            <input type="submit" name="submit" value="appointment now" class="btn">
+            
+        </form>-->
+
+    </div>
+
+</section>
+
+<!-- appointmenting section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+    
+    <h1 class="heading"> client's <span>review</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/pic-1.jpg" alt="">
+            <h3>Ankit Sharma</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">Doctor and staff are very Helpful. Had a great expirence and recovery was also fast </p>
+        </div>
+
+       <div class="box">
+            <img src="image/pic-2.jpg" alt="">
+            <h3>Alankrit Verma </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">He is an excellent and very capable doctor .I am really obliged that has been treated my mother and now she is fine .Thank u doctor</p>
+        </div>
+
+       <div class="box">
+            <img src="image/pic-3.jpg" alt="">
+            <h3>Rochan Dewangan</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text">Very nice and professional behaviour of Dr.Sudhir Verma in ICU.That is now professional should behave and brief provide updates attendants specially of critically ill patients </p>
+        </div>
+<div class="box">
+            <img src="image/pic-4.jpg" alt="">
+            <h3>Satyam Patel</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text"> It was a comfortable stay.The staff was very concerned and helpful.Overall a great expirence.keep up the good work. </p>
+        </div>
+
+        
+
+        <div class="box">
+            <img src="image/pic-5.jpg" alt="">
+            <h3>Deepak Kumar</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text"> Very nice and professional behaviour of Dr.Sudhir Verma in ICU.That is now professional should behave and brief provide updates attendants specially of critically ill patients </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+<!-- blogs section starts  -->
+
+<!--<section class="blogs" id="blogs">
+
+    <h1 class="heading"> our <span>blogs</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="image/blog-1.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <a href="#"> <i class="fas fa-calendar"></i> 21 november, 2022 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by win coder </a>
+                </div>
+                <h3>blog title win coder goes here</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, eius.</p>
+                <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="image/blog-2.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <a href="#"> <i class="fas fa-calendar"></i> 21 november, 2022 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by win coder </a>
+                </div>
+                <h3>blog title win coder goes here</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, eius.</p>
+                <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="image/blog-3.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <a href="#"> <i class="fas fa-calendar"></i> 21 november, 2022 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by win coder </a>
+                </div>
+                <h3>blog title win coder goes here</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, eius.</p>
+                <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="image/blog-4.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <a href="#"> <i class="fas fa-calendar"></i> 21 november, 2022 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by win coder </a>
+                </div>
+                <h3>blog title win coder goes here</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, eius.</p>
+                <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="image/blog-5.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <a href="#"> <i class="fas fa-calendar"></i> 21 november, 2022 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by win coder </a>
+                </div>
+                <h3>blog title win coder goes here</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, eius.</p>
+                <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="image/blog-6.jpg" alt="">
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <a href="#"> <i class="fas fa-calendar"></i> 21 november, 2022 </a>
+                    <a href="#"> <i class="fas fa-user"></i> by win coder </a>
+                </div>
+                <h3>blog title win coder goes here</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, eius.</p>
+                <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#home"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#about"> <i class="fas fa-chevron-right"></i> about </a>
+            <a href="#services"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#doctors"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="#appointment"> <i class="fas fa-chevron-right"></i> appointment </a>
+            <a href="#review"> <i class="fas fa-chevron-right"></i> review </a>
+            <a href="#blogs"> <i class="fas fa-chevron-right"></i>Blood Donation</a>
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+    
+            <a href="#"> <i class="fas fa-chevron-right"> Emergency service</i>  </a>
+            <a href="#"><i class="fas fa-chevron-right"> Medical shop</i> </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Blood Bank </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a>
+        </div>
+
+        <div class="box">
+            <h3>appointment info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +910000</a>
+            <a href="#"> <i class="fas fa-phone"></i> +910000 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> aa@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> aa@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Durg, Chhattisgarh</a>
+        </div>
+
+        
+
+    </div>
+
+    
+
+</section>
+
+<!-- footer section ends -->
+
+
+<!-- js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
